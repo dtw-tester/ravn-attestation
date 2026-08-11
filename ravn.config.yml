@@ -1,0 +1,12 @@
+# Ravn profile digest — sharing preferences.
+# Everything here is opt-in granularity. The collector only ever emits
+# aggregates; nothing below causes commit messages, private repo names,
+# or issue/PR bodies to leave your runner.
+
+share_account_age: true          # account creation date, follower count
+share_contribution_totals: true  # commits/PRs/reviews per year (incl. GitHub's own private aggregate)
+share_private_repo_count: false  # a single integer; never names
+share_public_repo_names: false   # top 10 public original repos by recent activity
+share_language_breakdown: true   # aggregate language counts
+share_org_memberships: false     # public org logins only
+share_security_signal: true      # count of public repos with security-adjacent names/topics

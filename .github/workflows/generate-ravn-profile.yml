@@ -1,0 +1,21 @@
+# Fork this repo, add RAVN_READONLY_TOKEN as a repo secret (optional but
+# recommended: fine-grained PAT, read-only), tweak ravn.config.yml, then run
+# this workflow from the Actions tab.
+name: Generate Ravn Profile
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  ravn-profile:
+    # PIN BY FULL SHA in production. This ref is what ends up in the signed
+    # provenance (job_workflow_ref) — it's the thing Ravn actually verifies.
+    uses: RavnSecurity/ravn-actions/.github/workflows/collect-profile.yml@e6d0c5acbc9f7e5aacb907aa073b41aae70c3c18
+    with:
+      config-path: ravn.config.yml
+    secrets:
+      RAVN_READONLY_TOKEN: ${{ secrets.RAVN_READONLY_TOKEN }}
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
